@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Bellefair", serif;
+}
+
+#nav_link li {
+  position: relative;
+}
+
+#destination_link button {
+  position: relative;
+}
+
+.nav_link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  bottom: -30px;
+  left: 0;
+  z-index: 10;
+}
+
+.link:hover:not(.nav_link)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: hsla(0deg, 0%, 100%, 0.5);
+  opacity: 1;
+  bottom: -30px;
+  left: 0;
+  z-index: -1;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  bottom: -5px;
+  left: 0;
+}
+
+.home_explorer:hover {
+  transform: scale(0.9);
+  outline-width: clamp(1.875rem, 5vw, 4.375rem);
+  outline-style: solid;
+  outline-color: #ffffff80;
+  outline-offset: -3px;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .link:hover:not(.nav_link)::after {
+    display: none;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
